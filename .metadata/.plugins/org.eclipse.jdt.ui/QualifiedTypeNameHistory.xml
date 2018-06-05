@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.im.InputContext"/>
+    <fullyQualifiedTypeName name="java.net.StandardSocketOptions"/>
+    <fullyQualifiedTypeName name="dongho.Television"/>
+    <fullyQualifiedTypeName name="java.nio.channels.ScatteringByteChannel"/>
+    <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
+    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.ForkJoinPool"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+    <fullyQualifiedTypeName name="dongho.Rectangle"/>
+    <fullyQualifiedTypeName name="Parameter.StaticSample"/>
+    <fullyQualifiedTypeName name="Tutoring.Mother"/>
+    <fullyQualifiedTypeName name="Tutoring.Calculation"/>
+    <fullyQualifiedTypeName name="Basic.Point"/>
+    <fullyQualifiedTypeName name="Tutoring2.Shape"/>
+    <fullyQualifiedTypeName name="java.util.logging.SocketHandler"/>
+    <fullyQualifiedTypeName name="Tutoring2.Circle"/>
+    <fullyQualifiedTypeName name="Tutoring2.Shape2"/>
+    <fullyQualifiedTypeName name="javax.lang.model.SourceVersion"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="javax.swing.plaf.FontUIResource"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="CharStream.FileReaderTest"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.io.OutputStreamWriter"/>
+    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+    <fullyQualifiedTypeName name="CharStream.FileOutputStreamTest"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+</qualifiedTypeNameHistroy>

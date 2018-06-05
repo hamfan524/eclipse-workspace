@@ -1,0 +1,166 @@
+package Class;
+import java.util.Scanner;
+	
+public class Hanoi_top {
+
+
+	   static int A[];
+	   static int B[];
+	   static int C[];
+	   static String A1[];
+	   static String B1[];
+	   static String C1[];
+	   static int top[];
+	   static String alphabet[] = { "A", "B", "C" };
+
+	   public static void main(String ary[]) {
+		   
+		   String s = "123       4";
+	      System.out.println(s);
+	      System.out.println(s.trim());
+	      int top_num;
+	      System.out.println("몇 층 하노이탑인가요??");
+	      Scanner input = new Scanner(System.in);
+	      top_num = input.nextInt();
+	 
+	      A = new int[top_num];    
+	      B = new int[top_num];
+	      C = new int[top_num];
+	      A1 = new String[top_num];
+	      B1 = new String[top_num];
+	      C1 = new String[top_num];
+	      Top_setting(top_num, 3);
+	      Set_hanoi_top();
+	      Print_hanoi_top(0);
+	      hanoi_top(top_num, "A", "B", "C");
+	      
+	      input.close();
+	   }
+
+	   
+	   private static void Top_setting(int length, int count) {
+	      // TODO Auto-generated method stub
+	      if (length < count) {
+	         top = new int[count];
+	         for (int i = 0; i < count; i++) {
+	            if (i == 0) {
+	               top[i] = 0;
+	            } else {
+	               top[i] = length;
+	            }
+	         }
+	      } else {
+	         top = new int[length];
+	         for (int i = 0; i < top.length; i++) {
+	            if (i == 0) {
+	               top[i] = 0;
+	            } else {
+	               top[i] = length;
+	            }
+	         }
+	      }
+	   }
+
+	   private static void Print_hanoi_top(int n) {
+	      // TODO Auto-generated method stub
+//	      for (int i = 0; i < A.length; i++) {
+//	         System.out.println(A[i] + "\t" + B[i] + "\t" + C[i]);
+//	      }
+//	      System.out.println("A \tB \tC");
+
+	      for (int i = 0; i < A.length; i++) {
+	         Print_star(i);
+	         System.out.println();
+	      }
+	      System.out.println("A \tB \tC");
+
+	   }
+
+	   private static void Print_star(int count) {
+	      // TODO Auto-generated method stub
+	      for (int j = 0 ; j < A[count] ; j++) {
+	         System.out.print("*");
+	      }
+	      System.out.print("\t");
+	      for (int j = 0 ; j < B[count] ; j++) {
+	         System.out.print("*");
+	      }
+	      System.out.print("\t");
+	      for (int j = 0 ; j < C[count] ; j++) {
+	         System.out.print("*");
+	      }
+	   }
+
+	   private static void Set_hanoi_top() {
+	      // TODO Auto-generated method stub
+	      for (int i = 0; i < A.length; i++) {
+	         A[i] = i + 1;
+	         B[i] = 0;
+	         C[i] = 0;
+	      }
+	      for (int i = 0; i < A.length; i++) {
+	         A1[i] = "";
+	         B1[i] = "";
+	         C1[i] = "";
+	      }
+	   }
+
+	   public static void hanoi_top(int n, String from, String temp, String to) {
+	      if (n == 1) {
+//	         System.out.println("원판 1을 " + from + "에서 " + to + "로 옮겨요");
+	         Choiec(n, from, to);
+	         Print_hanoi_top(n);
+	      } else {
+	         hanoi_top(n - 1, from, to, temp);
+//	         System.out.println("원판 " + n + "을 " + from + "에서 " + to + "로 옮겨요");
+	         Choiec(n, from, to);
+	         Print_hanoi_top(n);
+	         hanoi_top(n - 1, temp, from, to);
+	      }
+	   }
+
+	   private static void Choiec(int n, String from, String to) {
+	      // TODO Auto-generated method stub
+	      for (int i = 0; i < alphabet.length; i++) {
+	         if (from == alphabet[i]) {
+	            for (int j = 0; j < alphabet.length; j++) {
+	               if (to == alphabet[j]) {
+	                  Move(i, j);
+	                  break;
+	               }
+	            }
+	            break;
+	         }
+	      }
+	   }
+
+	   private static void Move(int i, int j) {
+	      // TODO Auto-generated method stub
+	      if (i == 0) {
+	         if (j == 1) {
+	            B[--top[j]] = A[top[i]];
+	            A[top[i]++] = 0;
+	         } else if (j == 2) {
+	            C[--top[j]] = A[top[i]];
+	            A[top[i]++] = 0;
+	         }
+	      } else if (i == 1) {
+	         if (j == 0) {
+	            A[--top[j]] = B[top[i]];
+	            B[top[i]++] = 0;
+	         } else if (j == 2) {
+	            C[--top[j]] = B[top[i]];
+	            B[top[i]++] = 0;
+	         }
+	      } else if (i == 2) {
+	         if (j == 0) {
+	            A[--top[j]] = C[top[i]];
+	            C[top[i]++] = 0;
+	         } else if (j == 1) {
+	            B[--top[j]] = C[top[i]];
+	            C[top[i]++] = 0;
+	         }
+	         
+	      }
+	   }
+	}

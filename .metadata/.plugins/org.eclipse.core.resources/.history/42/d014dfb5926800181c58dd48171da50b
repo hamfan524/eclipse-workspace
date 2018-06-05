@@ -1,0 +1,37 @@
+package CharStream;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+
+public class ImageCopy {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		FileInputStream fin;
+		FileOutputStream fout;
+		
+		try {
+			fin = new FileInputStream("C:\\Users\\최동호\\Pictures\\Saved Pictures\\732624.png");
+			fout = new FileOutputStream("pa.jpg");
+			
+			byte data[] = new byte[1024*10];
+			while(true) {
+				int len = fin.read(data, 0, data.length);
+				fout.write(data, 0, len);
+				if(len < data.length)
+					break;
+			}
+			fout.close();
+			fin.close();
+			
+			System.out.println("이미지를 복사 했습니다.");
+		}
+		catch(IOException e) {
+			System.out.println("파일이 없습니다.");
+		}
+	}
+
+}

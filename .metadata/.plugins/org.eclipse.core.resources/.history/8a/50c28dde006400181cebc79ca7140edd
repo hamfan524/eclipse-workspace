@@ -1,0 +1,164 @@
+package Project;
+
+import java.util.Scanner;
+
+public class Hanoi {
+
+	// static String a[] = { "****", "*** ", "** ", "* ", " "};
+	// static String b[] = { " ", " ", " ", " ", " "};
+	// static String c[] = { " ", " ", " ", " ", " "};
+	static String a[];
+	static String b[];
+	static String c[];
+
+	static void show() {
+
+		int i;
+
+		for (i = 5; i >= 0; i--)
+			System.out.printf("  |%s| |%s| |%s| \n", a[i], b[i], c[i]);
+
+		System.out.printf("------------------------\n %4c %7c %6c \n\n", 'A', 'B', 'C');
+
+	}
+
+	static void move(char from, char to) {
+		String tmp1 = "    ";
+
+		if (from == 'A' && to == 'B') {
+			for (int i = 0; i < a.length; i++) {
+
+				for (int j = 0; j < b.length; j++) {
+					if (a[i] == "" && b[j] == "") {
+						tmp1 = a[i - 1];
+						a[i - 1] = b[j];
+						b[j] = tmp1;
+
+						break;
+					}
+				}
+			}
+		}
+
+		else if (from == 'A' && to == 'C') {
+			for (int i = 0; i < a.length; i++) {
+				for (int j = 0; j < c.length; j++) {
+					if (a[i] == "" && c[j] == "") {
+						tmp1 = a[i - 1];
+						a[i - 1] = c[j];
+						c[j] = tmp1;
+
+						break;
+					}
+				}
+			}
+		}
+
+		else if (from == 'B' && to == 'A') {
+			for (int i = 0; i < b.length; i++) {
+				for (int j = 0; j < a.length; j++) {
+					if (b[i] == "" && a[j] == "") {
+						tmp1 = b[i - 1];
+						b[i - 1] = a[j];
+						a[j] = tmp1;
+
+						break;
+					}
+				}
+			}
+		}
+
+		else if (from == 'B' && to == 'C') {
+			for (int i = 0; i < b.length; i++) {
+				for (int j = 0; j < c.length; j++) {
+					if (b[i] == "" && c[j] == "") {
+						tmp1 = b[i - 1];
+						b[i - 1] = c[j];
+						c[j] = tmp1;
+
+						break;
+					}
+				}
+			}
+		}
+
+		else if (from == 'C' && to == 'A') {
+			for (int i = 0; i < c.length; i++) {
+				for (int j = 0; j < a.length; j++) {
+					if (c[i] == "" && a[j] == "") {
+						tmp1 = c[i - 1];
+						c[i - 1] = a[j];
+						a[j] = tmp1;
+
+						break;
+					}
+				}
+			}
+		}
+
+		else if (from == 'C' && to == 'B') {
+			for (int i = 0; i < c.length; i++) {
+				for (int j = 0; j < b.length; j++) {
+					if (c[i] == "" && b[j] == "") {
+						tmp1 = c[i - 1];
+						c[i - 1] = b[j];
+						b[j] = tmp1;
+
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	static void hanoi(int n, char from, char tmp, char to) {
+		if (n == 1) {
+			move(from, to);
+			show();
+			System.out.println("원판 *을 " + from + "에서 " + to + "로 옮긴다.\n\n");
+
+		} else {
+			hanoi(n - 1, from, to, tmp);
+			move(from, to);
+			show();
+			System.out.print("원판 ");
+			for (int i = 1; i <= n; i++) {
+				System.out.print("*");
+			}
+			System.out.println("을 " + from + "에서 " + to + "로 옮긴다.\n\n");
+			hanoi(n - 1, tmp, from, to);
+		}
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String number;
+		Scanner input = new Scanner(System.in);
+		number = input.next();
+		int count = Integer.parseInt(number)-1;
+		String star = "";
+		a = new String[Integer.parseInt(number)];
+		b = new String[Integer.parseInt(number)];
+		c = new String[Integer.parseInt(number)];
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < count; j++) {
+				star += "*";
+			}
+			a[i] = star;
+			b[i] = "";
+			c[i] = "";
+			star = "";
+			count--;
+		}
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(a[i]+"\t"+b[i]+"\t"+c[i]);
+		}
+		new Hanoi();
+		show();
+		System.out.println("처음 하노이 탑  \n\n");
+
+		hanoi(Integer.parseInt(number), 'A', 'B', 'C');
+	}
+
+}

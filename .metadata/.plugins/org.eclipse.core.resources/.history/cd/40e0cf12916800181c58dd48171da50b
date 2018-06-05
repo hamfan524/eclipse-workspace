@@ -1,0 +1,31 @@
+package CharStream;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class FileInputStreamTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		FileInputStream fin;
+		
+		try {
+			fin = new FileInputStream("test.dat");
+			int c;
+//			while((c = fin.read()) != -1 )
+//				System.out.println((byte)c);
+			byte num[] = new byte[1024];
+			while(true) {
+				int len = fin.read(num, 0, num.length);
+				if(len < num.length)
+					break;
+			}
+			fin.close();
+		}
+		
+		catch(IOException e) {
+			System.out.println("파일이 없습니다.");
+		}
+	}
+
+}

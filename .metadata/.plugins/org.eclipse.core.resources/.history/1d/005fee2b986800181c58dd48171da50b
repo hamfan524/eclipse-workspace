@@ -1,0 +1,28 @@
+package CharStream;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FileOutputStreamTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		byte num[] = {10, -10, 20, -20, 30, -30};
+		
+		FileOutputStream fout;
+		try {
+			fout = new FileOutputStream("test.dat");
+			for (int i = 0; i < num.length; i++) {
+				fout.write(num[i]);
+			}
+			fout.close();
+		}
+		
+		catch(IOException e) {
+			System.out.println("파일을 생성 할 수 없습니다.");
+		}
+		
+		System.out.println("파일 test.dat를 생성하였습니다.\n");
+	}
+
+}
